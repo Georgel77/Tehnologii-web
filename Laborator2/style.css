@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+header {
+  background: #2866a4;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: white;
+  background: #26394c;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: #1abc9c;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.item {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.tag {
+  display: inline-block;
+  margin: 5px 8px 5px 0;
+  padding: 6px 10px;
+  background: #dfe6e9;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #2866a4;
+  color: white;
+}

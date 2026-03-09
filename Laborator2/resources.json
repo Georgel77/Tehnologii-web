@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Biblioteca Centrala",
+    "type": "studiu",
+    "location": "Cladirea F, etajul 1",
+    "program": "08:00 - 20:00",
+    "tags": ["studiu", "carti", "liniste"]
+  },
+  {
+    "name": "Cantina Studenteasca",
+    "type": "mancare",
+    "location": "Cladirea H, etajul 1",
+    "program": "11:30 - 14:00",
+    "tags": ["mancare", "pauza", "social"]
+  },
+  {
+    "name": "Aula pentru Evenimente",
+    "type": "evenimente",
+    "location": "Aula A8",
+    "program": "Conform calendarului",
+    "tags": ["workshop", "conferinte", "studenti"]
+  }
+]
