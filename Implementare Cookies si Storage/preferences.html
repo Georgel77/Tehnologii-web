@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preferinte</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="cookies.js"></script>
+  <script src="storage.js"></script>
+</head>
+<body>
+  <h1>Setari Preferinte</h1>
+
+  <form id="preferencesForm">
+    <label for="username">Nume utilizator</label>
+    <input type="text" id="username" name="username" />
+
+    <label for="theme">Tema</label>
+    <select id="theme" name="theme">
+      <option value="light">Luminoasa</option>
+      <option value="dark">Intunecata</option>
+    </select>
+
+    <label for="language">Limba</label>
+    <select id="language" name="language">
+      <option value="Romana">Romana</option>
+      <option value="English">English</option>
+      <option value="Français">Français</option>
+    </select>
+
+    <label for="fontSize">Dimensiune font</label>
+    <select id="fontSize" name="fontSize">
+      <option value="14px">14</option>
+      <option value="16px">16</option>
+      <option value="18px">18</option>
+      <option value="20px">20</option>
+    </select>
+
+    <button type="submit">Salveaza preferintele</button>
+  </form>
+
+  <p class="message" id="successMessage"></p>
+
+  <script>
+    function applyTheme() {
+      const theme = CookieManager.get("theme") || "light";
+      document.body.classList.remove("light", "dark");
+      document.body.classList.add(theme);
+    }
+
+    function preloadForm() {
+      document.getElementById("username").value = CookieManager.get("username") || "";
+      document.getElementById("theme").value = CookieManager.get("theme") || "light";
+      document.getElementById("language").value = StorageManager.getLocal("language") || "Romana";
+      document.getElementById("fontSize").value = StorageManager.getLocal("fontSize") || "16px";
+
+      document.body.style.fontSize = StorageManager.getLocal("fontSize") || "16px";
+    }
+
+    document.getElementById("preferencesForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim() || "Vizitator";
+      const theme = document.getElementById("theme").value;
+      const language = document.getElementById("language").value;
+      const fontSize = document.getElementById("fontSize").value;
+
+      CookieManager.set("username", username, 7);
+      CookieManager.set("theme", theme, 7);
+
+      StorageManager.setLocal("language", language);
+      StorageManager.setLocal("fontSize", fontSize);
+
+      document.body.style.fontSize = fontSize;
+      applyTheme();
+
+      document.getElementById("successMessage").textContent =
+        "Preferintele au fost salvate cu succes. Redirectionare...";
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    });
+
+    applyTheme();
+    preloadForm();
+  </script>
+</body>
+</html>
